@@ -19,3 +19,12 @@
 <p> Above is a visualization of the ratio of deaths to cases. I find this interesting becuase this ratio has decreased over time. It would be interesting to know why this ratio has decreased. Are we better at treating Covid-19? Has a different demographic been getting infected with Covid more recently? </p>
 
 <h1>Mask Usage Analysis</h1>
+
+
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Mask%20Usage/AlwaysWearsMask.png" /></p>
+
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Mask%20Usage/Never.png" /></p>
+
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Mask%20Usage/SometimesWearsAMask.png" /></p>
+
+<p> Above are visualizations which show mask usage as a function of income. For these visualizations, counties were randomly selected from the state of Illinois. Based off of these graph, it appears that higher income counties are not only more likely to wear a mask, but they have a more adamant about always wearing a mask. Lower income counties are less likely to wear a mask, and have less conviction with their mask usage.  </p>
