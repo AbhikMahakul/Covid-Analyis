@@ -44,4 +44,13 @@
 <p> I started by using linear regression to determine a relationship between a state's population, and the number of deaths. After building the linear model, I was able to separate the top 8 vs the bottom 8 performing states. I performed this by grouping the states with the highest 8 resdiuals (more deaths than expected) as the worst performing 8 states, and I grouped the states with the lowest 8 residuals (less deaths than expected) as the best performing states. 
 <br> 
 <br>
-dfsfsdf </p>
+As for determining if this model is effective, we can look at the following -
+<br>
+<br>
+Coefficent of Determination - .4936
+<br>
+<br>
+Correlation Coefficent - .7025 
+<br>
+<br>
+With a Correlation Coefficent of .7025, we can state there is a strong linear relationship between the number of Covid Cases as a function of the state's population. The Coefficent of determination means that 49.36% of the model is explained the variability. As for causes in variability, this could be due to individual behaviors, climate, legislation, and a variety of other factors.  </p>
