@@ -54,3 +54,26 @@ Correlation Coefficent - .7025
 <br>
 <br>
 With a Correlation Coefficent of .7025, we can state there is a strong linear relationship between the number of Covid Cases as a function of the state's population. The Coefficent of determination means that 49.36% of the model is explained the variability. As for causes in variability, this could be due to individual behaviors, climate, legislation, and a variety of other factors.  </p>
+
+<h2> Deaths as a Function of Cases </h2>
+
+<h3> Statistical Summary</h3>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/DeathsVsCasesStats.png" /></p>
+
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/Bottom8DeathsVsCases.png /></p>
+
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/Top8DeathsVsCases.png" /></p>
+
+<p> I started by using linear regression to determine a relationship between a state's number of Covid Cases, and the number of deaths. After building the linear model, I was able to separate the top 8 vs the bottom 8 performing states. I performed this by grouping the states with the highest 8 resdiuals (more deaths than expected) as the worst performing 8 states, and I grouped the states with the lowest 8 residuals (less deaths than expected) as the best performing states. 
+<br> 
+<br>
+As for determining if this model is effective, we can look at the following -
+<br>
+<br>
+Coefficent of Determination - .76
+<br>
+<br>
+Correlation Coefficent - .5789
+<br>
+<br>
+With a Correlation Coefficent of .76, we can state there is a strong linear relationship between the number of Deaths as a function of the state's Covid Cases. The Coefficent of determination means that .5789 of the model is explained the variability. As for causes in variability, this could be due to individual behaviors, climate, demographics of those being infected, medical technology used, and a variety of other factors.  </p>
