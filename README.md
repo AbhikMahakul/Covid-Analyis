@@ -21,7 +21,7 @@
 <h1>Mask Usage Analysis</h1>
 
 
-<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Mask%20Usage/AlwaysWearsMask.png" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/Top8DeathsVsCases.png" /></p>
 
 
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/Top8DeathsVsCases.png" /></p>
