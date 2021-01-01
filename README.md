@@ -36,7 +36,7 @@
 
 <h3> Statistical Summary</h3>
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Mask%20Usage/DeathVsPopulationStats.png" /></p>
-<h3> Top 8 Performing States </h3>
+
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsPopulations/Top8CasesVsPopulationStats.png" /></p>
-<h3> Bottom 8 Performing States </h3>
+
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsPopulations/Bottom8CasesVsPopulationStats.png" /></p>
