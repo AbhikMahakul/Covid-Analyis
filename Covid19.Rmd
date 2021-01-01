@@ -1,0 +1,367 @@
+---
+title: "Covid Data Analysis"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+R Libraries
+```{r}
+library(tidyverse)
+library(reticulate)
+library(readxl)
+py_install("xlrd", pip =TRUE)
+library(lubridate)
+library(modelr)
+library(ggmap)
+library(cluster) 
+library(factoextra)
+library(ggpubr)
+
+```
+Importing Data Sets From GitHub
+```{r}
+USA_Deaths <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv")
+USA_States <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv")
+USA_Counties <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv")
+County_Mask <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/mask-use/mask-use-by-county.csv")
+USA_Counties_Live <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv")
+Excess_Deaths <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/excess-deaths/deaths.csv")
+
+College_Covid <- read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/colleges/colleges.csv")
+
+Geo_Codes <- read_csv("https://raw.githubusercontent.com/Data4Democracy/zip-code-to-county/master/county-fips.csv")
+
+USA_State_Population <- read_csv("https://raw.githubusercontent.com/CivilServiceUSA/us-states/master/data/states.csv")
+```
+
+
+Deaths and Cases Over Time
+```{r}
+
+ggplot(data = USA_Deaths, aes(x= date)) +
+  geom_line(aes(y=deaths, color = "deaths"))+
+  ylab("Deaths")+
+  xlab("Month")+
+  ggtitle("Deaths Over Time")
+
+ggplot(data = USA_Deaths, aes(x= date)) +
+  geom_line(aes(y=cases, color = "cases"))+
+  ylab("Cases")+
+  xlab("Month")+
+  ggtitle("Cases Over Time")
+```
+
+
+Based off of this graph, it appears that cases are growing at a much faster rate then deaths.
+
+```{r}
+case_death_ratio <- function(cases,deaths) {
+  deaths/cases
+}
+
+USA_Deaths %>% mutate( death_ratio = case_death_ratio(cases, deaths)) -> USA_Deaths
+
+ggplot(data = USA_Deaths, aes(x= date)) +
+  geom_line(aes(y=death_ratio, color = "Death to Cases Ratio"))+
+  ylab("Death to Case Ratio Over Time ")+
+  xlab("Month")+
+  ggtitle("Death to Case Ratio")
+
+```
+
+Based off of this graph, it appears that deaths per case ratio has decreased over time. 
+
+Masks Usage Analysis Versus Income. Please note the income data is from https://www.indexmundi.com/facts/united-states/quick-facts/illinois/median-household-income#tableTab
+
+```{r}
+County_Mask %>% 
+  separate(COUNTYFP, into = c('State', 'County'), sep = 2)->County_Mask_State
+
+County_Mask_State %>%
+  filter(State == '17') ->Illinois_Data
+
+
+County_Name <- vector(mode = "character", length = nrow(Illinois_Data))
+
+for (i in 1: nrow(Illinois_Data))
+{
+  County_Name[i] = ifelse(Illinois_Data$County[i] == "031", "Cook",
+                         ifelse(Illinois_Data$County[i] == "097", "Lake", 
+                         ifelse(Illinois_Data$County[i] == "043", "DuPage", 
+                         ifelse(Illinois_Data$County[i] == "037", "DeKalb", 
+                         ifelse(Illinois_Data$County[i] == "089", "Kane",
+                         ifelse(Illinois_Data$County[i] == "197", "Will",
+                         ifelse(Illinois_Data$County[i] == "111", "McHenry",
+                         ifelse(Illinois_Data$County[i] == "003", "Alexander",
+                         ifelse(Illinois_Data$County[i] == "121", "Marion",
+                         ifelse(Illinois_Data$County[i] == "095", "Knox",
+                         ifelse(Illinois_Data$County[i] == "013", "Calhoun",
+                         ifelse(Illinois_Data$County[i] == "023", "Clark",
+                         ifelse(Illinois_Data$County[i] == "011", "Bureau",
+                         ifelse(Illinois_Data$County[i] == "167", "Sangamon",
+                         ifelse(Illinois_Data$County[i] == "203", "Woodford",
+                         ifelse(Illinois_Data$County[i] == "017", "Cass",
+                         ifelse(Illinois_Data$County[i] == "025", "Clay",
+                         ifelse(Illinois_Data$County[i] == "051", "Fayette",
+                         ifelse(Illinois_Data$County[i] == "061", "Greene",
+                         ifelse(Illinois_Data$County[i] == "147", "Piatt",
+                         ifelse(Illinois_Data$County[i] == "077", "Jackson",
+                         ifelse(Illinois_Data$County[i] == "153", "Pulaski",
+                         "Not_Analyzing"))))))))))))))))))))))
+}
+
+
+data.frame(Illinois_Data, County_Name) -> Illinois_Data
+
+Median_Income <- vector(mode = "double", length = nrow(Illinois_Data))
+
+for (i in 1: nrow(Illinois_Data))
+{
+  Median_Income[i] = ifelse(Illinois_Data$County[i] == "031", 62088,
+                         ifelse(Illinois_Data$County[i] == "097", 86244, 
+                         ifelse(Illinois_Data$County[i] == "043", 88711, 
+                         ifelse(Illinois_Data$County[i] == "037", 61086, 
+                         ifelse(Illinois_Data$County[i] == "089", 76912,
+                         ifelse(Illinois_Data$County[i] == "197", 83504,
+                         ifelse(Illinois_Data$County[i] == "111", 84503,
+                         ifelse(Illinois_Data$County[i] == "003", 34709,
+                         ifelse(Illinois_Data$County[i] == "121", 46102,
+                         ifelse(Illinois_Data$County[i] == "095", 43709,
+                         ifelse(Illinois_Data$County[i] == "013", 54392,
+                         ifelse(Illinois_Data$County[i] == "023", 54158,
+                         ifelse(Illinois_Data$County[i] == "011", 55940,
+                         ifelse(Illinois_Data$County[i] == "167", 60466,
+                         ifelse(Illinois_Data$County[i] == "203", 71867,
+                         ifelse(Illinois_Data$County[i] == "017", 51977,
+                         ifelse(Illinois_Data$County[i] == "025", 48691,
+                         ifelse(Illinois_Data$County[i] == "051", 44432,
+                         ifelse(Illinois_Data$County[i] == "061", 46052,
+                         ifelse(Illinois_Data$County[i] == "147", 69271,
+                         ifelse(Illinois_Data$County[i] == "077", 37802,
+                         ifelse(Illinois_Data$County[i] == "153", 33799,
+                         0))))))))))))))))))))))      
+                       
+}
+
+data.frame(Illinois_Data, Median_Income) -> Illinois_Data
+
+Illinois_Data %>%
+  filter(County_Name != "Not_Analyzing")-> Illinois_Data_Summarized
+  
+ggplot(data = Illinois_Data_Summarized, aes(x = Median_Income, y = NEVER, color = County_Name))+ 
+  geom_point()+
+  ylab("Percentage Who Answered Never Wears a Mask")+
+  xlab("Median Income")+
+  ggtitle("Never Wearing a Mask Versus Income Broken Down By County")
+
+ggplot(data = Illinois_Data_Summarized, aes(x = Median_Income, y = ALWAYS, color = County_Name))+ 
+  geom_point()+
+  ylab("Percentage Who Answered Always Wears a Mask")+
+  xlab("Median Income")+
+  ggtitle("Always Wearing a Mask Versus Income Broken Down By County")
+
+ggplot(data = Illinois_Data_Summarized, aes(x = Median_Income, y = SOMETIMES, color = County_Name))+ 
+  geom_point()+
+  ylab("Percentage Who Answered Sometimes Wears a Mask")+
+  xlab("Median Income")+
+  ggtitle("Sometimes Wearing a Mask Versus Income Broken Down By County")
+
+
+
+```
+Based off of these graph, it appears that higher income counties are not only more likely to wear a mask, but they have a more adamant about always wearing a mask. Lower income counties are less likely to wear a mask, and have less conviction with their mask usage.  
+
+Linear Regression Used to Analyze How States Performed 
+
+```{r}
+
+USA_States %>% mutate( death_ratio = case_death_ratio(cases, deaths)) -> USA_States
+
+USA_States %>%
+  group_by(state)%>%
+  summarise(total_cases = sum(cases), total_deaths = sum(deaths), overall_death_ratio = sum(deaths)/sum(cases))-> Summarized_USA_States
+
+Summarized_USA_States %>%
+  inner_join(USA_State_Population, by = c("state" = "state"))->Summarized_USA_States
+
+Summarized_USA_States%>%
+  arrange(overall_death_ratio)
+ggplot(data = Summarized_USA_States, aes(x = total_cases, y = total_deaths, color = state))+ 
+  geom_point()+
+  ylab("Cases")+
+  xlab("Deaths")+
+  ggtitle("Death's as a Function of Cases by State")
+
+ggplot(data = Summarized_USA_States, aes(x = population, y = overall_death_ratio, color = state))+ 
+  geom_point()+
+  ylab("Death Ratio")+
+  xlab("Population")+
+  ggtitle("Death Ratio as a Function of Population by State")
+
+ggplot(data = Summarized_USA_States, aes(x = population, y = total_deaths, color = state))+ 
+  geom_point()+
+  ylab("Deaths")+
+  xlab("Population")+
+  ggtitle("Death's as a Function of Population by State")
+
+ggplot(data = Summarized_USA_States, aes(x = population, y = total_cases, color = state))+ 
+  geom_point()+
+  ylab("Cases")+
+  xlab("Population")+
+  ggtitle("Case's as a Function of Population by State")
+
+```
+
+
+
+
+```{r}
+lm_model_deaths_vs_cases <- lm(data = Summarized_USA_States, total_deaths ~ total_cases)
+
+summary(lm_model_deaths_vs_cases)
+
+Summarized_USA_States %>%
+  add_residuals(lm_model_deaths_vs_cases) %>%
+  add_predictions(lm_model_deaths_vs_cases) -> Summarized_USA_States_LM_deaths_vs_cases
+
+Summarized_USA_States_LM_deaths_vs_cases %>%
+  select(state, total_deaths, total_cases, resid, pred)%>%
+  arrange(resid)%>%
+  head(8)->Summarized_USA_States_LM_deaths_vs_cases_top8
+
+
+ggplot(data=Summarized_USA_States_LM_deaths_vs_cases_top8, aes(x=state, y=resid, fill = state)) +
+  geom_bar(stat="identity")+
+  ylab("Residual Deaths")+
+  xlab("")+
+  ggtitle("Top 8 States for Death Residuals (Cases)")
+
+Summarized_USA_States_LM_deaths_vs_cases %>%
+  select(state, total_deaths, total_cases, resid, pred)%>%
+  arrange(-resid)%>%
+  head(8)->Summarized_USA_States_LM_deaths_vs_cases_bottom8
+
+ggplot(data=Summarized_USA_States_LM_deaths_vs_cases_bottom8, aes(x=state, y=resid, fill = state)) +
+  geom_bar(stat="identity")+
+  ylab("Residual Deaths")+
+  xlab("")+
+  ggtitle("Bottom 8 States for Death Residuals (Cases)")
+
+Summarized_USA_States_LM_deaths_vs_cases
+
+```
+```{r}
+lm_model_deathratio_vs_population <- lm(data = Summarized_USA_States, overall_death_ratio ~ population)
+
+summary(lm_model_deathratio_vs_population) 
+
+Summarized_USA_States %>%
+  add_residuals(lm_model_deathratio_vs_population) %>%
+  add_predictions(lm_model_deathratio_vs_population) -> Summarized_USA_States_LM_deathratio_vs_population
+
+Summarized_USA_States_LM_deathratio_vs_population %>%
+  select(state, total_deaths, overall_death_ratio, resid, pred)%>%
+  arrange(resid)%>%
+  head(8)->Summarized_USA_States_LM_deaths_vs_cases_top8
+
+
+Summarized_USA_States_LM_deaths_vs_cases_top8
+
+Summarized_USA_States_LM_deathratio_vs_population %>%
+  select(state, total_deaths, overall_death_ratio, resid, pred)%>%
+  arrange(-resid)%>%
+  head(8)->Summarized_USA_States_LM_deaths_vs_cases_bottom8
+
+Summarized_USA_States_LM_deaths_vs_cases_bottom8
+
+ggplot(data=Summarized_USA_States_LM_deaths_vs_cases_top8, aes(x=state, y=resid, fill = state)) +
+  geom_bar(stat="identity")+
+  ylab("Residual Death Ratio")+
+  xlab("")+
+  ggtitle("Top 8 Performing States for Death Ratio Residuals")
+
+ggplot(data=Summarized_USA_States_LM_deaths_vs_cases_bottom8, aes(x=state, y=resid, fill = state)) +
+  geom_bar(stat="identity")+
+  ylab("Residual Death Ratio")+
+  xlab("")+
+  ggtitle("Bottom 8 Performing States for Death Ratio Residuals")
+
+```
+
+```{r}
+lm_model_deathS_vs_population <- lm(data = Summarized_USA_States, total_deaths ~ population)
+
+lm(data = Summarized_USA_States, total_deaths ~ population)
+
+summary(lm_model_deathS_vs_population) 
+
+Summarized_USA_States %>%
+  add_residuals(lm_model_deathS_vs_population) %>%
+  add_predictions(lm_model_deathS_vs_population) -> Summarized_USA_States_LM_deaths_vs_population
+
+Summarized_USA_States_LM_deaths_vs_population %>%
+  select(state, total_deaths, overall_death_ratio, resid, pred)%>%
+  arrange(resid)%>%
+  head(8)->Summarized_USA_States_LM_deaths_vs_population_top8
+
+Summarized_USA_States_LM_deaths_vs_population_top8
+
+ggplot(data=Summarized_USA_States_LM_deaths_vs_population_top8, aes(x=state, y=resid, fill = state)) +
+  geom_bar(stat="identity")+
+  ylab("Residual Deaths")+
+  xlab("")+
+  ggtitle("Top 8 Performing States for Death Total Residuals (Population)")
+
+Summarized_USA_States_LM_deaths_vs_population %>%
+  select(state, total_deaths, overall_death_ratio, resid, pred)%>%
+  arrange(-resid)%>%
+  head(8)->Summarized_USA_States_LM_deaths_vs_population_bottom8
+
+Summarized_USA_States_LM_deaths_vs_population_bottom8
+
+ggplot(data=Summarized_USA_States_LM_deaths_vs_population_bottom8, aes(x=state, y=resid, fill = state)) +
+  geom_bar(stat="identity")+
+  ylab("Residual Deaths")+
+  xlab("")+
+  ggtitle("Bottom 8 Performing States for Death Total Residuals (Population)")
+
+
+```
+
+```{r}
+lm_model_cases_vs_population <- lm(data = Summarized_USA_States, total_cases ~ population)
+
+summary(lm_model_cases_vs_population)
+
+Summarized_USA_States %>%
+  add_residuals(lm_model_cases_vs_population) %>%
+  add_predictions(lm_model_cases_vs_population) -> Summarized_USA_States_LM_cases_vs_population
+
+Summarized_USA_States_LM_cases_vs_population %>%
+  select(state, total_deaths, overall_death_ratio, resid, pred)%>%
+  arrange(resid)%>%
+  head(8)->Summarized_USA_States_LM_cases_vs_population_top8
+
+Summarized_USA_States_LM_cases_vs_population_top8
+
+ggplot(data=Summarized_USA_States_LM_cases_vs_population_top8, aes(x=state, y=resid, fill = state)) +
+  geom_bar(stat="identity")+
+  ylab("Residual Cases")+
+  xlab("")+
+  ggtitle("Top 8 Performing States for Case Total Residuals")
+
+Summarized_USA_States_LM_cases_vs_population %>%
+  select(state, total_deaths, overall_death_ratio, resid, pred)%>%
+  arrange(-resid)%>%
+  head(8)->Summarized_USA_States_LM_cases_vs_population_bottom8
+
+Summarized_USA_States_LM_cases_vs_population_bottom8
+
+ggplot(data=Summarized_USA_States_LM_cases_vs_population_bottom8, aes(x=state, y=resid, fill = state)) +
+  geom_bar(stat="identity")+
+  ylab("Residual Cases")+
+  xlab("")+
+  ggtitle("Bottom 8 Performing States for Case Total Residuals")
+```
+
