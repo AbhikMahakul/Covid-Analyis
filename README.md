@@ -33,3 +33,7 @@
 <h1>State Performance Visualizations</h1>
 
 <h2>Deaths as a Function of Population</h2> 
+
+ask%20Usage/Never.png" /></p>
+
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Mask%20Usage/DeathVsPopulationStats.png" /></p>
