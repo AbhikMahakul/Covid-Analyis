@@ -43,4 +43,5 @@
 
 <p> I started by using linear regression to determine a relationship between a state's population, and the number of deaths. After building the linear model, I was able to separate the top 8 vs the bottom 8 performing states. I performed this by grouping the states with the highest 8 resdiuals (more deaths than expected) as the worst performing 8 states, and I grouped the states with the lowest 8 residuals (less deaths than expected) as the best performing states. 
 <br> 
+<br>
 dfsfsdf </p>
