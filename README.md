@@ -60,7 +60,7 @@ With a Correlation Coefficent of .7025, we can state there is a strong linear re
 <h2> Deaths as a Function of Cases </h2>
 
 <h3> Statistical Summary</h3>
-<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/DeathsVsCasesStats.png" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/Top8DeathsVsCases.png" /></p>
 
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/Bottom8DeathsVsCases.png /></p>
 
