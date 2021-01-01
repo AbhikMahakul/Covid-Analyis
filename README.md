@@ -7,3 +7,14 @@
  
 <p> Above is a visualization of cases over time in the United States. As expected the cases have increased over time. </p>
 
+
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Basic%20Trends/deathsovertime.png" /></p>
+
+
+<p> Above is a visualization of deaths over time in the United States. As expected the cases have increased over time. </p>
+
+
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Basic%20Trends/deathratio.png" /></p>
+
+
+<p> Above is a visualization of the ratio of deaths to cases. I find this interesting becuase this ratio has decreased over time. </p>
