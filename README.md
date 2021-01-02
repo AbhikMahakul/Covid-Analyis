@@ -60,11 +60,11 @@ With a Correlation Coefficent of .7025, we can state there is a strong linear re
 <h2> Deaths as a Function of Cases </h2>
 
 <h3> Statistical Summary</h3>
-<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/Top8DeathsVsCases.png" /></p>
-
-<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/Bottom8DeathsVsCases.png /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/DeathsVsCasesStats.png" /></p>
 
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/Top8DeathsVsCases.png" /></p>
+
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/Bottom8DeathsVsCases.png" /></p>
 
 <p> I started by using linear regression to determine a relationship between a state's number of Covid Cases, and the number of deaths. After building the linear model, I was able to separate the top 8 vs the bottom 8 performing states. I performed this by grouping the states with the highest 8 resdiuals (more deaths than expected) as the worst performing 8 states, and I grouped the states with the lowest 8 residuals (less deaths than expected) as the best performing states. 
 <br> 
