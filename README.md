@@ -62,9 +62,9 @@ With a Correlation Coefficent of .7025, we can state there is a strong linear re
 <h3> Statistical Summary</h3>
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathsVsCases/DeathsVsCasesStats.png" /></p>
 
-<p><img alt="Image" title="icon" src="" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images2/Images%202/deathsvscases/Top8.png" /></p>
 
-<p><img alt="Image" title="icon" src="" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images2/Images%202/deathsvscases/Bottom8.png" /></p>
 
 <p> I started by using linear regression to determine a relationship between a state's number of Covid Cases, and the state's population. After building the linear model, I was able to separate the top 8 vs the bottom 8 performing states. I performed this by grouping the states with the highest 8 resdiuals (more cases than expected) as the worst performing 8 states, and I grouped the states with the lowest 8 residuals (less deaths than expected) as the best performing states. 
 <br> 
