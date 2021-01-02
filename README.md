@@ -39,9 +39,9 @@
 <h3> Statistical Summary</h3>
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Mask%20Usage/DeathVsPopulationStats.png" /></p>
 
-<p><img alt="Image" title="icon" src="" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images2/Images%202/DeathsvsPopulation/Top8.png" /></p>
 
-<p><img alt="Image" title="icon" src="" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images2/Images%202/DeathsvsPopulation/Bottom8.png" /></p>
 
 <p> I started by using linear regression to determine a relationship between a state's population, and the number of deaths. After building the linear model, I was able to separate the top 8 vs the bottom 8 performing states. I performed this by grouping the states with the highest 8 resdiuals (more deaths than expected) as the worst performing 8 states, and I grouped the states with the lowest 8 residuals (less deaths than expected) as the best performing states. 
 <br> 
