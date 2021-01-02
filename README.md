@@ -100,3 +100,24 @@ Correlation Coefficent - .9574
 <br>
 <br>
 With a Correlation Coefficent of .95, we can state there is a strong linear relationship between the number of Cases as a function of the state's Population. The Coefficent of determination means that .9168 of the model is explained the variability. As for causes in variability, this could be due to individual behaviors, population density, and a variety of other factors.  </p>
+
+<h2>Death Ratio as a Function of Population</h2> 
+<h3> Statistical Summary</h3>
+
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathRatioVsPopulation/DeathRatioVsPoupulationStats.png" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathRatioVsPopulation/Top8DeathRatioVsPoupulationStats.png" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathRatioVsPopulation/Bottom8DeathRatioVs%20PoupulationStats.png" /></p>
+
+<p> I started by using linear regression to determine a relationship between a state's population, and the states ratio of deaths/cases. After building the linear model, I was able to separate the top 8 vs the bottom 8 performing states. I performed this by grouping the states with the highest 8 resdiuals (more residual than expected) as the worst performing 8 states, and I grouped the states with the lowest 8 residuals (lower residual than expected) as the best performing states. 
+<br> 
+<br>
+As for determining if this model is effective, we can look at the following -
+<br>
+<br>
+Coefficent of Determination - .019
+<br>
+<br>
+Correlation Coefficent - .1378
+<br>
+<br>
+With a Correlation Coefficent of .1378, we can state there is a weak relationship between the number of Death/Case Ratio as a function of the state's Population. To determine potential Death/Case Ratio's we would have to look at other factors, such as: population density, individual behaviors, and other sources of information. </p>
