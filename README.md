@@ -83,9 +83,9 @@ With a Correlation Coefficent of .76, we can state there is a strong linear rela
 <h3> Statistical Summary</h3>
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/CasesVsPopulations/CasesVsPopulationStats.png" /></p>
 
-<p><img alt="Image" title="icon" src="" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images2/Images%202/CasesvsPopulation/Top8.png" /></p>
 
-<p><img alt="Image" title="icon" src="" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images2/Images%202/CasesvsPopulation/Bottom8.png" /></p>
 
 <p> I started by using linear regression to determine a relationship between a state's number of Covid Cases, and the number of deaths. After building the linear model, I was able to separate the top 8 vs the bottom 8 performing states. I performed this by grouping the states with the highest 8 resdiuals (more deaths than expected) as the worst performing 8 states, and I grouped the states with the lowest 8 residuals (less deaths than expected) as the best performing states. 
 <br> 
@@ -105,8 +105,8 @@ With a Correlation Coefficent of .95, we can state there is a strong linear rela
 <h3> Statistical Summary</h3>
 
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/DeathRatioVsPopulation/DeathRatioVsPoupulationStats.png" /></p>
-<p><img alt="Image" title="icon" src=" /></p>
-<p><img alt="Image" title="icon" src="" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images2/Images%202/Death%20Ratio/Top8.png" /></p>
+<p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images2/Images%202/Death%20Ratio/Bottom8.png" /></p>
 
 <p> I started by using linear regression to determine a relationship between a state's population, and the states ratio of deaths/cases. After building the linear model, I was able to separate the top 8 vs the bottom 8 performing states. I performed this by grouping the states with the highest 8 resdiuals (more residual than expected) as the worst performing 8 states, and I grouped the states with the lowest 8 residuals (lower residual than expected) as the best performing states. 
 <br> 
