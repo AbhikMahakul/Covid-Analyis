@@ -121,3 +121,9 @@ Correlation Coefficent - .1378
 <br>
 <br>
 With a Correlation Coefficent of .1378, we can state there is a weak relationship between the number of Death/Case Ratio as a function of the state's Population. To determine potential Death/Case Ratio's we would have to look at other factors, such as: population density, individual behaviors, and other sources of information. </p>
+
+<h1> Sources</h1>
+<p>https://github.com/nytimes/covid-19-data
+ <br>
+ <br>
+ https://www.indexmundi.com/facts/united-states/quick-facts/illinois/median-household-income#tableTab </p1>
