@@ -11,7 +11,7 @@
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Basic%20Trends/deathsovertime.png" /></p>
 
 
-<p> Above is a visualization of deaths over time in the United States. The number of deaths has increased overtime, but the rate at which deaths occurr have not been consistently increasing like the number of cases. This could be due to evolving technologies used to treat Covid, or due to a less vulnurable demographic being infected </p>
+<p> Above is a visualization of deaths over time in the United States. The number of deaths has increased overtime, but the rate at which deaths occurr have not been consistently increasing like the number of cases. This could be due to evolving technologies used to treat Covid, or due to a less vulnurable demographic being infected. </p>
 
 
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Basic%20Trends/deathratio.png" /></p>
