@@ -5,7 +5,7 @@
 <h1>Basic Visualization and Analysis</h1>
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Basic%20Trends/casesovertime.png" /></p>
  
-<p> Above is a visualization of cases over time in the United States. Over time the cases have increased. When analyzing the graph, I notice that the rate of cases increases over time. The largest increase in the rate of cases occurrs from October through January. This is likely due to colder weather which leads Americans to congregate indoor. Congregating indoors has been known to increase the transmission of the virus.  </p>
+<p> Above is a visualization of cases over time in the United States. Over time the cases have increased. When analyzing the graph, I notice that the rate of cases increases over time. The largest increase in the rate of cases occurs from October through January. This is likely due to colder weather which leads Americans to congregate indoor. Congregating indoors has been known to increase the transmission of the virus.  </p>
 
 
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Basic%20Trends/deathsovertime.png" /></p>
@@ -16,7 +16,7 @@
 
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Basic%20Trends/deathratio.png" /></p>
 
-<p> Above is a visualization of the ratio of deaths to cases. I find this interesting becuase this ratio has decreased over time. It would be interesting to know why this ratio has decreased. Are we better at treating Covid-19? Has a different demographic been getting infected with Covid more recently? </p>
+<p> Above is a visualization of the ratio of deaths to cases. I find this interesting because this ratio has decreased over time. It would be interesting to know why this ratio has decreased. Are we better at treating Covid-19? Has a different demographic been getting infected with Covid more recently? </p>
 
 <h1>Mask Usage Analysis by County in Illinois, USA</h1>
 
