@@ -5,13 +5,13 @@
 <h1>Basic Visualization and Analysis</h1>
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Basic%20Trends/casesovertime.png" /></p>
  
-<p> Above is a visualization of cases over time in the United States. Over time the cases have increased. When analyzing the graph, I notice that the rate of cases increases over time. The largest increase in the rate of cases occurs from October through January. This is likely due to colder weather which leads Americans to congregate indoor. Congregating indoors has been known to increase the transmission of the virus.  </p>
+<p> Above is a visualization of cases over time in the United States. Over time the cases have increased. When analyzing the graph, I notice that the rate of cases increases over time. The largest increase in the rate of cases occurs from October through January. This is likely due to colder weather which leads Americans to congregate indoors. Congregating indoors has been known to increase the transmission of the virus.  </p>
 
 
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Basic%20Trends/deathsovertime.png" /></p>
 
 
-<p> Above is a visualization of deaths over time in the United States. The number of deaths has increased overtime, but the rate at which deaths occurr have not been consistently increasing like the number of cases. This could be due to evolving technologies used to treat Covid, or due to a less vulnurable demographic being infected. </p>
+<p> Above is a visualization of deaths over time in the United States. The number of deaths has increased overtime, but the rate at which deaths occurr have not been consistently increasing like the number of cases. This could be due to evolving technologies used to treat Covid, or due to a less vulnerable demographic being infected. </p>
 
 
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images/Basic%20Trends/deathratio.png" /></p>
@@ -29,7 +29,7 @@
 
 <p><img alt="Image" title="icon" src="https://github.com/AbhikMahakul/Covid-Analysis/blob/main/Images2/Images%202/Mask%20Usage/Sometimes.png" /></p>
 
-<p> Above are visualizations which show mask usage as a function of income. For these visualizations, counties were randomly selected from the state of Illinois. Based off of these graph, it appears that higher income counties are not only more likely to wear a mask, but they have a more adamant about always wearing a mask. Lower income counties are less likely to wear a mask, and have less conviction with their mask usage.  </p>
+<p> Above are visualizations which show mask usage as a function of income. For these visualizations, counties were randomly selected from the state of Illinois. Based off of these graphs, it appears that higher income counties are not only more likely to wear a mask, but they have a more adamant about always wearing a mask. Lower income counties are less likely to wear a mask, and have less conviction with their mask usage.  </p>
 
 
 <h1> Covid 19 Performance Visualizations by State (United States)</h1>
